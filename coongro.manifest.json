@@ -1,0 +1,57 @@
+{
+  "id": "granos-produccion",
+  "version": "1.0.0",
+  "apiVersion": "2.0",
+  "assets": {
+    "styles": [
+      "./dist/assets/tailwind.css",
+      "./dist/assets/fontawesome/css/all.min.css"
+    ]
+  },
+  "contributes": {
+    "menus": [
+      {
+        "path": "Produccion",
+        "order": 60,
+        "icon": "assets/icons/fabrica.svg",
+        "color": "#4CAF50"
+      },
+      {
+        "path": "Produccion/Tamanadora",
+        "order": 1,
+        "viewId": "granos-produccion.tamanadora.open"
+      },
+      {
+        "path": "Produccion/Insumos",
+        "order": 2,
+        "viewId": "granos-produccion.insumos.open"
+      }
+    ],
+    "views": [
+      {
+        "id": "granos-produccion.tamanadora.open",
+        "title": "Tamanadora",
+        "component": "./dist/views/batches/index.js",
+        "export": "BatchesView"
+      },
+      {
+        "id": "granos-produccion.insumos.open",
+        "title": "Insumos",
+        "component": "./dist/views/supplies/index.js",
+        "export": "SuppliesView"
+      }
+    ],
+    "repositories": [
+      {
+        "module": "./dist/repositories/production-batch.repository.js",
+        "export": "ProductionBatchRepository",
+        "prefix": "granos-produccion.production-batches"
+      },
+      {
+        "module": "./dist/repositories/supply-movement.repository.js",
+        "export": "SupplyMovementRepository",
+        "prefix": "granos-produccion.supply-movements"
+      }
+    ]
+  }
+}
